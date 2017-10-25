@@ -1,7 +1,6 @@
 library(shiny)
 library(tidyverse)
 state_specialty <- read.table("specialty_by_state_data.csv", header = TRUE, sep = ',')
-gather(state_specialty, key = "specialty", value = "value", Psychiatry:Other)
 
 # Define server logic required to draw a histogram
 function(input, output) {
@@ -9,8 +8,9 @@ function(input, output) {
   output$specialty_plot <- renderPlot({
     
     # draw the barplot with the specialties as x
-    gather(state_specialty, key = "specialty", value = "value", Psychiatry:Other)
-    
+    gather(state_specialty, key = "specialty", value = "value", Psychiatry:Other) %>%
+      + ggplot(aes(specialty, value))
+      + theme(axis.text.x = element_text(angle = 60, hjust = 1))
   })
   
 }
