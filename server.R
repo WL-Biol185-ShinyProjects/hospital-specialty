@@ -9,8 +9,7 @@ function(input, output) {
     
     # draw the barplot with the specialties as x
     gather(state_specialty, key = "specialty", value = "value", Psychiatry:Other) %>%
-      + ggplot(aes(specialty, value))
-      + theme(axis.text.x = element_text(angle = 60, hjust = 1))
+    ggplot(aes(specialty, value)) + geom_col()+ theme(axis.text.x = element_text(angle = 60, hjust = 1))
   })
   
 }
