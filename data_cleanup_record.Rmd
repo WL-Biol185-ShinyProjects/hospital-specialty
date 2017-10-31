@@ -29,9 +29,12 @@ plot(pressure)
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
+#Tidying the original data set
 Raw data downloaded from https://www.kff.org/other/state-indicator/physicians-by-specialty-area/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D on September 28, 2017.
 Raw data set uploaded from excel file.
 Deleted entirety of lines 1 and 2.
 Deleted quotations around "Endocrinology, Diabetes, and Metabolism" in line 1. Also deleted commas.
 Added underscores (_) to all spaces between words in headers.
 Deleted lines 56 through 70. 71 was left as the blank 56th line after deletion.
+
+#Arranging data by region for regional fluid page
