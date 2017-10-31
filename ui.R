@@ -13,9 +13,9 @@ fluidPage(
       selectInput( inputId = 'state',
                   label = 'Select a State',
                   state_specialty$Location,
-                  selected = NULL,
-                  multiple = TRUE,
-                  selectize = TRUE,
+                  selected = "United States",
+                  multiple = FALSE,
+                  selectize = FALSE,
                   width = NULL,
                   size = NULL)
     ),
