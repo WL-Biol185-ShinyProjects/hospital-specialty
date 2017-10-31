@@ -26,3 +26,29 @@ fluidPage(
     )
   )
 )
+
+#define UI for application that draws a density map
+fluidPage(
+  
+  # Application title
+  titlePanel("Map of US Hospital Specialties"),
+  
+  # Sidebar with a input for selection of states
+  sidebarLayout(
+    sidebarPanel(
+      selectInput( inputId = 'specialty',
+                   label = 'Select a Specialty',
+                   state_specialty$Psychiatry,
+                   selected = "Other",
+                   multiple = FALSE,
+                   selectize = FALSE,
+                   width = NULL,
+                   size = NULL)
+    ),
+    
+    # Show a plot of the generated distribution
+    mainPanel(
+      plotOutput("specialty_map")
+    )
+  )
+)

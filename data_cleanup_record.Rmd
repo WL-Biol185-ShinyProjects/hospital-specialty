@@ -36,5 +36,6 @@ Deleted entirety of lines 1 and 2.
 Deleted quotations around "Endocrinology, Diabetes, and Metabolism" in line 1. Also deleted commas.
 Added underscores (_) to all spaces between words in headers.
 Deleted lines 56 through 70. 71 was left as the blank 56th line after deletion.
+Deleted the final column "Total" header and values in each line.
 
 #Arranging data by region for regional fluid page
