@@ -5,18 +5,25 @@ state_specialty <- read.table("specialty_by_state_data.csv", header = TRUE, sep 
 #Define UI for application that hosts all fluidpages
 dashboardPage(
   dashboardHeader(),
-  dashboardSidebar(),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Physician Specialty by State", tabName = "dashboard", icon = icon("dashboard"))
+               )
+                  ),
   dashboardBody(
-    # Define UI for application that draws a histogram
-    fluidPage(
+    tabItems(
+      # First tab content
+       tabItem(tabname = "dashboard",
+       # Define UI for application that draws a histogram
+        fluidPage(
       
-      # Application title
-      titlePanel("Physician Specialty by State Data"),
+        # Application title
+        titlePanel("Physician Specialty by State Data"),
       
-      # Sidebar with a input for selection of states
-      sidebarLayout(
-        sidebarPanel(
-          selectInput( inputId = 'state',
+           # Sidebar with a input for selection of states
+            sidebarLayout(
+            sidebarPanel(
+            selectInput( inputId = 'state',
                        label = 'Select a State',
                        state_specialty$Location,
                        selected = "United States",
@@ -24,11 +31,15 @@ dashboardPage(
                        selectize = FALSE,
                        width = NULL,
                        size = NULL)
-        ),
+                        ),
         
         # Show a plot of the generated distribution
         mainPanel(
           plotOutput("specialty_plot")
-        )
-  )
-)))
+                 )
+                          )
+                 )
+               )
+            )
+                )        
+               )
