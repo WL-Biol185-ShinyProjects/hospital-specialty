@@ -12,4 +12,4 @@ function(input, output) {
       filter(Location == input$state) %>%
     ggplot(aes(specialty, value)) + geom_bar(stat = 'identity', color = "slateblue3", fill = "slateblue1")+ theme(axis.text.x = element_text(angle = 60, hjust = 1), panel.background = element_rect(fill = "lavender"))
   })
-  
+}
