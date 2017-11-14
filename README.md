@@ -7,3 +7,5 @@ State Populayion: http://www.enchantedlearning.com/usa/states/population.shtml
 State Size: http://www.ipl.org/div/stateknow/popchart.html
 median pay
 physicians per capita/geographical distance
+
+          

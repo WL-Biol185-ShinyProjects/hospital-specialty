@@ -4,21 +4,19 @@ state_specialty <- read.table("specialty_by_state_data.csv", header = TRUE, sep 
 
 #Define UI for application that hosts all fluidpages
 dashboardPage(
-  dashboardHeader(),
+  dashboardHeader(title = "Physician Analysis"),
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Physician Specialty by State", tabName = "dashboard", icon = icon("dashboard"))
-               )
+    menuItem("Physician Specialty by State", tabName = "specialty", icon = icon("dashboard"))
+               ) 
                   ),
   dashboardBody(
-    tabItems(
-      # First tab content
-       tabItem(tabname = "dashboard",
+   
        # Define UI for application that draws a histogram
         fluidPage(
       
         # Application title
-        titlePanel("Physician Specialty by State Data"),
+        titlePanel("Physician Specialty by State"),
       
            # Sidebar with a input for selection of states
             sidebarLayout(
@@ -41,5 +39,4 @@ dashboardPage(
                  )
                )
             )
-                )        
-               )
+               
