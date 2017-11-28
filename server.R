@@ -1,5 +1,6 @@
 library(shiny)
 library(tidyverse)
+library(leaflet)
 state_specialty <- read.table("specialty_by_state_data.csv", header = TRUE, sep = ',')
 
 # Define server logic required to draw a histogram
