@@ -6,6 +6,7 @@ library(rgdal)
 #Load States.JSON
 states <- rgdal::readOGR("States.JSON.txt", "OGRGeoJSON")
 
+#Load Data Table
 state_specialty <- read.table("specialty_by_state_data.csv", header = TRUE, sep = ',')
 
 #Define UI for application that hosts all fluidpages
@@ -13,12 +14,24 @@ dashboardPage(
   dashboardHeader(title = "Physician Analysis"),
   dashboardSidebar(
     sidebarMenu(
+      menuItem("Home", tabName = "home", icon = icon("home")),
       menuItem("Physician Specialty by State", tabName = "specialty", icon = icon("dashboard")),
       menuItem("Physicians per Capita", tabName = "capitaLeaflet", icon = icon("dashboard"))
     ) ), 
   
   dashboardBody(
     tabItems(
+      tabItem(tabName = "home",
+              #Define UI for Home Description
+              fluidRow(
+                box(width = 12, img(src = "physicians.jpg", align = "center")),
+                
+                box(width = 12, p("Welcome to our web app! We analyzed data regarding the
+                                  prevalence of different specialties of physicians in all
+                                  50 states and District of Columbia of the United States.")
+                )
+                )
+              ),
       tabItem(tabName = "specialty",
               
               # Define UI for application that draws a histogram
