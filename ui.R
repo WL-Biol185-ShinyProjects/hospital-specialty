@@ -1,5 +1,11 @@
 library(shiny)
 library(shinydashboard)
+library(leaflet)
+library(rgdal)
+
+#Load States.JSON
+states <- rgdal::readOGR("States.JSON.txt", "OGRGeoJSON")
+
 state_specialty <- read.table("specialty_by_state_data.csv", header = TRUE, sep = ',')
 
 #Define UI for application that hosts all fluidpages
@@ -8,12 +14,13 @@ dashboardPage(
   dashboardSidebar(
     sidebarMenu(
       menuItem("Physician Specialty by State", tabName = "specialty", icon = icon("dashboard")),
-      menuItem("Physicians per Capita", tabName = "capitaLeaflet", icon = icon("dashboard"))    
-      )
-  ),
+      menuItem("Physicians per Capita", tabName = "capitaLeaflet", icon = icon("dashboard"))
+    ) ), 
+  
   dashboardBody(
     tabItems(
       tabItem(tabName = "specialty",
+              
               # Define UI for application that draws a histogram
               fluidPage(
                 
@@ -39,9 +46,9 @@ dashboardPage(
                   )
                 )
               )
-      ),
+      ), 
       tabItem(tabName = "capitaLeaflet")
-      )
+      
     )
-  
+  )
 )
