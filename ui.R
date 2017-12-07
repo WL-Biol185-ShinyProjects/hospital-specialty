@@ -16,7 +16,8 @@ dashboardPage(
     sidebarMenu(
       menuItem("Home", tabName = "home", icon = icon("home")),
       menuItem("Physician Specialty by State", tabName = "specialty", icon = icon("dashboard")),
-      menuItem("Physicians per Capita", tabName = "capitaLeaflet", icon = icon("dashboard"))
+      menuItem("Physicians per Capita", tabName = "capitaLeaflet", icon = icon("dashboard")),
+      menuItem("References", tabName = "references", icon = icon("dashboard"))
     ) ), 
   
   dashboardBody(
@@ -24,7 +25,7 @@ dashboardPage(
       tabItem(tabName = "home",
               #Define UI for Home Description
               fluidRow(
-                box(width = 12, img(src = "physicians.jpg", align = "center")),
+                box(width = 12, img(src = "MedicalCare.jpg", align = "center")),
                 
                 box(width = 12, p("Welcome to our web app! We analyzed data regarding the
                                   prevalence of different specialties of physicians in all
@@ -60,8 +61,20 @@ dashboardPage(
                 )
               )
       ), 
-      tabItem(tabName = "capitaLeaflet")
-      
+      tabItem(tabName = "capitaLeaflet"),
+      tabItem(tabName = "references",
+              #Define UI for Resources List Page
+              fluidRow(
+                box(width = 12, img(src = "MedicalCare.jpg", align = "center")),
+                
+                box(width = 12,
+                    a(href = "https://www.kff.org/other/state-indicator/physicians-by-specialty-area/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D", "Specialty By State Data"),
+                    p(),
+                    a(href = "http://www.enchantedlearning.com/usa/states/population.shtml", "State Populations"),
+                    p(),
+                    a(href = "http://www.ipl.org/div/stateknow/popchart.html", "State Size")
+              ))
+      )
     )
   )
 )
