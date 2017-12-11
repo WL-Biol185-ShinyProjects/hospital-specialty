@@ -29,7 +29,20 @@ dashboardPage(
                 
                 box(width = 12, p("Welcome to our web app! We analyzed data regarding the
                                   prevalence of different specialties of physicians in all
-                                  50 states and District of Columbia of the United States.")
+                                  50 states and District of Columbia of the United States."),
+                                p(),
+                                p("According to a 2016 census, the number of physicians in 
+                                  the United States saw a net-increase of 12% since 2010.
+                                  However, The New York Times also reported in 2016 that
+                                  the apparent growth in physicians does not compare to
+                                  currentl population growth trends. Therefore, the ratio
+                                  of physicians per capita in the United States is only 
+                                  predicted to decrease further."),
+                                p(),
+                                p("Given these recent trends, we believe it is important
+                                  to analyze the current availability of access to physicians
+                                  of different specialties across the United States to better
+                                  inform individuals that might need care.")
                 )
                 )
               ),
@@ -72,7 +85,11 @@ dashboardPage(
                     p(),
                     a(href = "http://www.enchantedlearning.com/usa/states/population.shtml", "State Populations"),
                     p(),
-                    a(href = "http://www.ipl.org/div/stateknow/popchart.html", "State Size")
+                    a(href = "http://www.ipl.org/div/stateknow/popchart.html", "State Size"),
+                    p(),
+                    a(href = "https://www.nytimes.com/2016/11/08/upshot/a-doctor-shortage-lets-take-a-closer-look.html", "The New York Times"),
+                    p(),
+                    a(href = "https://www.fsmb.org/Media/Default/PDF/Census/2016census.pdf", "2016 Census")
               ))
       )
     )
