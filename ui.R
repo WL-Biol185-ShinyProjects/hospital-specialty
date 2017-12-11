@@ -8,6 +8,7 @@ states <- rgdal::readOGR("States.JSON.txt", "OGRGeoJSON")
 
 #Load Data Table
 state_specialty <- read.table("specialty_by_state_data.csv", header = TRUE, sep = ',')
+regional_specialty <- read.table("regional_specialty_data.csv", header = TRUE, sep = ',')
 
 #Define UI for application that hosts all fluidpages
 dashboardPage(
@@ -15,9 +16,9 @@ dashboardPage(
   dashboardSidebar(
     sidebarMenu(
       menuItem("Home", tabName = "home", icon = icon("home")),
-      menuItem("Physician Specialty by State", tabName = "specialty", icon = icon("dashboard")),
-      menuItem("Physicians per Capita", tabName = "capitaLeaflet", icon = icon("dashboard")),
-      menuItem("References", tabName = "references", icon = icon("dashboard"))
+      menuItem("Physician Specialty by State", tabName = "specialty", icon = icon("eyedropper")),
+      menuItem("Physicians per Capita", tabName = "capitaLeaflet", icon = icon("map-pin")),
+      menuItem("References", tabName = "references", icon = icon("book"))
     ) ), 
   
   dashboardBody(
@@ -71,9 +72,25 @@ dashboardPage(
                   mainPanel(
                     plotOutput("specialty_plot")
                   )
+                  ),
+                sidebarLayout(
+                  sidebarPanel(
+                    selectInput(inputId = 'region',
+                                label = 'Select a Region',
+                                regional_specialty$Location,
+                                selected = "New England",
+                                multiple = FALSE,
+                                selectize = FALSE,
+                                width = NULL,
+                                size = NULL)
+                  ),
+                  #Show a plot of the generated distribution
+                  mainPanel(
+                    plotOutput("regional_plot")
+                  )
                 )
-              )
-      ), 
+                )
+              ),
       tabItem(tabName = "capitaLeaflet"),
       tabItem(tabName = "references",
               #Define UI for Resources List Page

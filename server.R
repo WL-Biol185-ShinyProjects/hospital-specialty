@@ -4,6 +4,7 @@ library(leaflet)
 library(rgdal)
 states <- rgdal::readOGR("States.JSON.txt", "OGRGeoJSON")
 state_specialty <- read.table("specialty_by_state_data.csv", header = TRUE, sep = ',')
+regional_specialty <- read.table("regional_specialty_data.csv", header = TRUE, sep = ',')
 
 # Define server logic required to draw a histogram
 function(input, output) {
@@ -14,5 +15,12 @@ function(input, output) {
     gather(state_specialty, key = "specialty", value = "value", Psychiatry:Other) %>%
       filter(Location == input$state) %>%
       ggplot(aes(specialty, value)) + geom_bar(stat = 'identity', color = "slateblue3", fill = "slateblue1")+ theme(axis.text.x = element_text(angle = 60, hjust = 1), panel.background = element_rect(fill = "lavender"))
+  })
+  output$regional_plot <- renderPlot({
+    
+    #draw the barplot with specialties as x and regions as select input
+    gather(regional_specialty, key = "specialty", value = "value", Psychiatry:Other) %>%
+      filter(Location == input$region) %>%
+      ggplot(aes(specialty, value)) + geom_bar(stat= 'identity', color = "slateblue3", fill = "slateblue1") + theme(axis.text.x = element_text(angle = 60, hjust = 1), panel.background = element_rect(fill = "lavender"))
   })
 }
