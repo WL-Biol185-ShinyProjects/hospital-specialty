@@ -16,7 +16,8 @@ dashboardPage(
   dashboardSidebar(
     sidebarMenu(
       menuItem("Home", tabName = "home", icon = icon("home")),
-      menuItem("Physician Specialty by State", tabName = "specialty", icon = icon("eyedropper")),
+      menuItem("Physician Specialty by State", tabName = "specialty", icon = icon("stethoscope")),
+      menuItem("Physician Specialty Population", tabName = "population", icon = icon("medkit")),
       menuItem("Physicians per Capita", tabName = "capitaLeaflet", icon = icon("map-pin")),
       menuItem("References", tabName = "references", icon = icon("book"))
     ) ), 
@@ -91,6 +92,7 @@ dashboardPage(
                 )
                 )
               ),
+      tabItem(tabName = "population"),
       tabItem(tabName = "capitaLeaflet"),
       tabItem(tabName = "references",
               #Define UI for Resources List Page
