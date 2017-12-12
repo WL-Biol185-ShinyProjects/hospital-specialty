@@ -56,6 +56,13 @@ dashboardPage(
                 # Application title
                 titlePanel("Physician Specialty by State"),
                 
+                #Page Description
+                box(width = 12, p("Below are two interactive graphs that show the number of
+                                  physicians in each state practicing one of 9 categories of
+                                  specialties. The regional graph uses the 9 Census regions
+                                  of the United States, so you can compare a state's distribution
+                                  of specialists to the rest of its region.")),
+                
                 # Sidebar with a input for selection of states
                 sidebarLayout(
                   sidebarPanel(
@@ -92,12 +99,42 @@ dashboardPage(
                 )
                 )
               ),
-      tabItem(tabName = "population"),
+      tabItem(tabName = "population",
+              fluidPage(
+                
+                #Application Title
+                titlePanel("Physician Specialty Populations"),
+                
+                #Page Description
+                box(width = 12, p("Below is an interactive graph of the distribution of
+                                  practicing specialists in each state. Choose a specialty
+                                  to see the number of physicians of that specialty in all 50
+                                  states and D.C.")),
+                
+                #Sidebar with input for selection of specialty
+                sidebarLayout(
+                  sidebarPanel(
+                    selectInput(inputId = 'specialty',
+                                label = 'Select a Specialty',
+                                choices = colnames(state_specialty[-1]),
+                                selected = 'Psychiatry',
+                                multiple = FALSE,
+                                selectize = FALSE,
+                                width = NULL,
+                                size = NULL)
+                  ),
+                  
+                  #Show a plot of the generated distribution
+                  mainPanel(
+                    plotOutput("population_plot")
+                  )
+                )
+              )),
       tabItem(tabName = "capitaLeaflet"),
       tabItem(tabName = "references",
               #Define UI for Resources List Page
               fluidRow(
-                box(width = 12, img(src = "MedicalCare.jpg", align = "center")),
+                box(width = 12, img(src = "Microscope.jpeg", align = "center", width = 550, height = 400)),
                 
                 box(width = 12,
                     a(href = "https://www.kff.org/other/state-indicator/physicians-by-specialty-area/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D", "Specialty By State Data"),
