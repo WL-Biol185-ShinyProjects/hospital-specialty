@@ -2,6 +2,8 @@ library(shiny)
 library(shinydashboard)
 library(leaflet)
 library(rgdal)
+library(htmltools)
+
 
 #Load States.JSON
 states <- rgdal::readOGR("States.JSON.txt", "OGRGeoJSON")
@@ -130,7 +132,9 @@ dashboardPage(
                   )
                 )
               )),
-      tabItem(tabName = "capitaLeaflet"),
+      tabItem(tabName = "capitaLeaflet",
+              leafletOutput("Physician_Heatmap")),
+      
       tabItem(tabName = "references",
               #Define UI for Resources List Page
               fluidRow(
