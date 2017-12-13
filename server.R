@@ -40,7 +40,7 @@ function(input, output) {
     joinedData<-left_join(states@data, Copy_of_Per10KData1, by= c("NAME"="Location"))
     states@data <- joinedData
     pal1 <- colorNumeric(
-      palette = c("cyan2", "cyan4"),
+      palette = c("cyan", "darkblue"),
       domain = states@data$CapitaRatio)
     labels1 <- sprintf(
       "<strong>%s</strong><br/>%g Physicians",
