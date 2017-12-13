@@ -40,10 +40,10 @@ function(input, output) {
     joinedData<-left_join(states@data, Copy_of_Per10KData1, by= c("NAME"="Location"))
     states@data <- joinedData
     pal1 <- colorNumeric(
-      palette = c("dodgerblue", "dodgerblue4"),
+      palette = c("cyan2", "cyan4"),
       domain = states@data$CapitaRatio)
     labels1 <- sprintf(
-      "<strong>%s</strong><br/>%g cases",
+      "<strong>%s</strong><br/>%g Physicians",
       states@data$NAME,
       states@data$CapitaRatio
     ) %>%
@@ -51,14 +51,14 @@ function(input, output) {
     leaflet(data = states) %>%
       addTiles %>%
       addPolygons(fillColor = ~pal1(CapitaRatio),
-                  fillOpacity = 0.7,
-                  color = "#BDBDC3",
+                  fillOpacity = 0.8,
+                  color = "black",
                   weight = 1,
                   highlight = highlightOptions(
                     weight = 5,
-                    color = "#666",
+                    color = "black",
                     dashArray = "",
-                    fillOpacity = 0.8,
+                    fillOpacity = 0.7,
                     bringToFront = TRUE),
                   label = labels1,
                   labelOptions = labelOptions(
@@ -71,7 +71,7 @@ function(input, output) {
                 opacity = 0.7, 
                 title = NULL,
                 position = "bottomright") %>%
-      setView(lat = 38.0110306, lng = -110.4080342, zoom = 2.5)
+      setView(lat = 38.0110306, lng = -110.4080342, zoom = 3)
     
   })
 }

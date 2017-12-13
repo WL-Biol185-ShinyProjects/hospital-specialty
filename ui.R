@@ -133,6 +133,13 @@ dashboardPage(
                 )
               )),
       tabItem(tabName = "capitaLeaflet",
+              #Application Title
+              titlePanel("Physicians Per 10k Citizens"),
+              
+              #Page Description
+              box(width = 12, p("Below is a heat map that shows the number of
+                                  practicing specialists per 10 thousand citizens in each state.
+                                  Hover over a state to see the number of physicians.")),
               leafletOutput("Physician_Heatmap")),
       
       tabItem(tabName = "references",
