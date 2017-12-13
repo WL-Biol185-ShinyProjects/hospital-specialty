@@ -37,11 +37,11 @@ function(input, output) {
   "Heat Map of US States with physicians per capita"
   
   output$Physician_Heatmap <-renderLeaflet({
-    joinedData<-left_join(states@data, "Per10kData.xlsx", by= c("NAME"="Location"))
+    joinedData<-left_join(states@data, Copy_of_Per10KData1, by= c("NAME"="Location"))
     states@data <- joinedData
     pal1 <- colorNumeric(
       palette = c("dodgerblue", "dodgerblue4"),
-      domain = states@CapitaRatio)
+      domain = states@data$CapitaRatio)
     labels1 <- sprintf(
       "<strong>%s</strong><br/>%g cases",
       states@data$NAME,
