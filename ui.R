@@ -11,6 +11,7 @@ states <- rgdal::readOGR("States.JSON.txt", "OGRGeoJSON")
 #Load Data Table
 state_specialty <- read.table("specialty_by_state_data.csv", header = TRUE, sep = ',')
 regional_specialty <- read.table("regional_specialty_data.csv", header = TRUE, sep = ',')
+per_capita <- read.csv("Per10KData.csv", header = TRUE, sep = ',')
 
 #Define UI for application that hosts all fluidpages
 dashboardPage(

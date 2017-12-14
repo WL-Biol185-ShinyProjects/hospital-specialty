@@ -9,7 +9,7 @@ states <- rgdal::readOGR("States.JSON.txt", "OGRGeoJSON")
 state_specialty <- read.table("specialty_by_state_data.csv", header = TRUE, sep = ',')
 regional_specialty <- read.table("regional_specialty_data.csv", header = TRUE, sep = ',')
 States_physicians<- read.csv("specialty_by_state_data.csv")
-per_capita <- read.csv("Per10KData.csv")
+per_capita <- read.csv("Per10KData.csv", header = TRUE, sep = ',')
 
 # Define server logic required to draw a histogram
 function(input, output) {
