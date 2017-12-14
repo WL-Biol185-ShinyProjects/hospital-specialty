@@ -48,6 +48,7 @@ function(input, output) {
       states@data$CapitaRatio
     ) %>%
       lapply(htmltools::HTML)
+    
     leaflet(data = states) %>%
       addTiles %>%
       addPolygons(fillColor = ~pal1(CapitaRatio),
