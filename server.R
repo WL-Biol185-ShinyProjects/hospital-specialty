@@ -40,9 +40,14 @@ function(input, output) {
   output$Physician_Heatmap <-renderLeaflet({
     joinedData<-left_join(states@data, per_capita, by= c("NAME"="Location"))
     states@data <- joinedData
-    pal1 <- colorNumeric(
+    pal1 <- colorBin(
       palette = c("cyan", "darkblue"),
-      domain = states@data$CapitaRatio)
+      domain = states@data$CapitaRatio, 
+      bins = 6,
+      pretty = TRUE,
+      na.color = "#808080",
+      alpha = FALSE,
+      reverse = FALSE)
     labels1 <- sprintf(
       "<strong>%s</strong><br/>%g Physicians",
       states@data$NAME,
