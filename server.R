@@ -9,6 +9,7 @@ states <- rgdal::readOGR("States.JSON.txt", "OGRGeoJSON")
 state_specialty <- read.table("specialty_by_state_data.csv", header = TRUE, sep = ',')
 regional_specialty <- read.table("regional_specialty_data.csv", header = TRUE, sep = ',')
 States_physicians<- read.csv("specialty_by_state_data.csv")
+per_capita <- read.csv("Per10KData.csv", header = TRUE)
 
 # Define server logic required to draw a histogram
 function(input, output) {
@@ -37,7 +38,7 @@ function(input, output) {
   "Heat Map of US States with physicians per capita"
   
   output$Physician_Heatmap <-renderLeaflet({
-    joinedData<-left_join(states@data, Copy_of_Per10KData1, by= c("NAME"="Location"))
+    joinedData<-left_join(states@data, per_capita, by= c("NAME"="Location"))
     states@data <- joinedData
     pal1 <- colorNumeric(
       palette = c("cyan", "darkblue"),
